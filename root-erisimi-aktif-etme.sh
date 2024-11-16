@@ -1,20 +1,36 @@
 #!/bin/bash
 
-# Root erişimini açmak için SSH yapılandırma dosyasını düzenle
-echo "Düzenlemeler yapılıyor: /etc/ssh/sshd_config"
+# Root kullanıcı şifresi belirleme
+echo "Root kullanıcısı için bir şifre belirleyin:"
+passwd root
 
-# PermitRootLogin ayarını 'yes' olarak değiştir
-sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+# SSH yapılandırma dosyasını kontrol et ve düzenle
+SSHD_CONFIG="/etc/ssh/sshd_config"
 
-# PasswordAuthentication ayarını 'yes' olarak değiştir
-sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+echo "SSH yapılandırması düzenleniyor..."
+
+# PermitRootLogin ayarını aktif et
+if grep -q "^#*PermitRootLogin" $SSHD_CONFIG; then
+    sed -i 's/^#*PermitRootLogin.*/PermitRootLogin yes/' $SSHD_CONFIG
+else
+    echo "PermitRootLogin yes" >> $SSHD_CONFIG
+fi
+
+# PasswordAuthentication ayarını aktif et
+if grep -q "^#*PasswordAuthentication" $SSHD_CONFIG; then
+    sed -i 's/^#*PasswordAuthentication.*/PasswordAuthentication yes/' $SSHD_CONFIG
+else
+    echo "PasswordAuthentication yes" >> $SSHD_CONFIG
+fi
 
 # SSH servisini yeniden başlat
 echo "SSH servisi yeniden başlatılıyor..."
 systemctl restart sshd
 
-# Root kullanıcısı için parola belirle
-echo "Root kullanıcısı için yeni bir parola belirleyin:"
-passwd root
+# Firewall kontrolü (SSH bağlantılarına izin ver)
+echo "Firewall ayarları düzenleniyor..."
+ufw allow 22/tcp
+ufw enable
+ufw reload
 
-echo "Root erişimi başarıyla açıldı. Artık root olarak SSH bağlantısı yapabilirsiniz."
+echo "İşlem tamamlandı! Artık root kullanıcıyla SSH üzerinden giriş yapabilirsiniz."
