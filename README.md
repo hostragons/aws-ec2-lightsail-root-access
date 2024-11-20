@@ -7,7 +7,7 @@ Bu betik, AWS EC2 ve Lightsail sunucularında SSH yapılandırmasını düzenley
 
 ## Kullanım
 
-1. Betiği sunucunuza yükleyin. (nano enable_root_access.sh)
+1. Betiği sunucunuza yükleyin. `nano enable_root_access.sh`
 2. Çalıştırma izni vermek için `chmod +x enable_root_access.sh` komutunu kullanın.
 3. Betiği `sudo ./enable_root_access.sh` komutuyla çalıştırın.
 4. İstendiğinde root kullanıcısı için bir parola belirleyin.
