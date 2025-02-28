@@ -1,4 +1,4 @@
-## AWS Root Access Script
+## AWS Root Access Script (SSH Key Remove)
 
 This script is designed to enable root access on AWS EC2 and Lightsail servers by modifying the SSH configuration and setting a password for the root user. It configures SSH to permit direct root logins.
 
