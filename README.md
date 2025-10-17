@@ -9,7 +9,7 @@ This script is designed to enable root access on AWS EC2 and Lightsail servers b
 
 ### Usage
 
-1. Upload the script to your server:
+1. Upload the script to your server: ( Opt: wget https://cdn.hostragons.com/enable_root_access.sh )
    ```
    nano enable_root_access.sh
    ```
