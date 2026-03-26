@@ -1,28 +1,63 @@
-## AWS Root Access Script (SSH Key Remove)
+## 🚀 Features
 
-This script is designed to enable root access on AWS EC2 and Lightsail servers by modifying the SSH configuration and setting a password for the root user. It configures SSH to permit direct root logins.
+* Enable root login on AWS EC2
+* Works on Ubuntu / Debian
+* Compatible with Lightsail servers
+* Simple one-command execution
+* Safe & fast setup
 
-**Important Notice:**  
-- The script modifies your server’s SSH configuration. It is recommended to back up your server settings before using the script to avoid any unintended issues.  
-- Enabling root access can pose security risks. Therefore, **use a strong password** for the root account and enable root access only when absolutely necessary.  
-- Always ensure that proper backups are in place for your system and data before running the script.
+---
 
-### Usage
+## ⚡ One Command Install
 
-1. Upload the script to your server: ( Opt: wget https://cdn.hostragons.com/enable_root_access.sh )
-   ```
-   nano enable_root_access.sh
-   ```
-2. Grant the script execution permissions:
-   ```
-   chmod +x enable_root_access.sh
-   ```
-3. Run the script with superuser privileges:
-   ```
-   sudo ./enable_root_access.sh
-   ```
-4. When prompted, set a strong password for the root user.
+```bash
+bash <(curl -s https://raw.githubusercontent.com/hostragons/aws-ec2-lightsail-root-access/main/install.sh)
+```
 
-### License
+---
 
-This project is licensed under the MIT License.
+## 📌 What This Script Does
+
+* Sets root password
+* Enables root SSH login
+* Updates SSH configuration
+* Restarts SSH service
+
+---
+
+## ⚠️ Important Notes
+
+* Root login increases risk if not secured
+* Always use strong password
+* Consider disabling password auth later
+
+---
+
+## 🧠 SEO Keywords
+
+aws ec2 root access
+lightsail root ssh
+enable root login aws
+ec2 ssh root login
+linux root access script
+
+---
+
+## 🏢 About Hostragons
+
+Hostragons provides high-performance hosting solutions.
+
+* 🌍 Global infrastructure
+* ⚡ Fast servers
+* 🔐 Secure hosting
+* 🛠️ 24/7 support
+
+👉 https://www.hostragons.com
+
+---
+
+## ⭐ Support
+
+If this helped you, please ⭐ the repo!
+
+---
