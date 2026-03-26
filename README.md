@@ -11,7 +11,7 @@
 ## ⚡ One Command Install
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/hostragons/aws-ec2-lightsail-root-access/main/install.sh)
+bash <(curl -s bash <(curl -s https://raw.githubusercontent.com/hostragons/aws-ec2-lightsail-root-access/main/enable_root_access.sh))
 ```
 
 ---
